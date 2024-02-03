@@ -11,7 +11,9 @@ function ModalOnSale({ show, onHide, text, name, image }) {
     <>
       <Modal show={show} onHide={onHide}>
         <Modal.Header closeButton>
-          <Modal.Title>{name}</Modal.Title>
+          <Modal.Title>
+            {name} <img src={image} className="img-fluid" alt="  " />
+          </Modal.Title>
         </Modal.Header>
         <Modal.Body>{text}</Modal.Body>
         <Modal.Footer>
