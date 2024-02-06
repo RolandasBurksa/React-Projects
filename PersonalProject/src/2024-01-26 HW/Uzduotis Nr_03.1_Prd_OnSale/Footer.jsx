@@ -1,5 +1,3 @@
-// import Flex from 'react-bootstrap';
-
 export const Footer = () => {
   return (
     <>
@@ -44,14 +42,14 @@ export const Footer = () => {
           </div>
         </div>
         <div className="d-flex">
-          <div className="ml-auto p-2">Flex item</div>
           <div className="p-2">Flex item</div>
-          <div className="ml-auto p-2">Flex item</div>
+          <div className="p-2">Flex item</div>
+          <div className="mr-auto p-2">Flex item</div>
         </div>
         <div className="d-flex">
           <div className="p-2">Flexxx item1</div>
           <div className="p-2">Flexxx item2</div>
-          <div className="ml-auto p-2">Flexxx item3</div>
+          <div className="mr-auto p-2">Flexxx item3</div>
         </div>
       </div>
     </>
