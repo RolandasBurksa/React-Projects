@@ -5,7 +5,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 
 function BasicNavBarExample() {
   return (
-    // melynas remelis isoreja
+    // melynas remelis isoreje
     <div className="p-3 mb-2 bg-info text-white">
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
