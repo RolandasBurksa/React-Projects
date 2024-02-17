@@ -5,7 +5,7 @@ export const HomePage = () => {
   return (
     <>
       <br></br>
-      <h1>Give Something that Means Something</h1>
+      <h1 style={{ color: 'red' }}>Give Something that Means Something</h1>
       <br></br>
       <img src={image1} alt="Donor Card" />
       <br></br>
@@ -14,8 +14,8 @@ export const HomePage = () => {
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis hic maxime minus eos sint ea esse sapiente,
         accusantium labore ipsam voluptas mollitia, quam deleniti at nesciunt, deserunt ex repellendus aperiam.
       </p>
-      <Link to="/registration">
-        <button>Registration</button>
+      <Link to="/inputform">
+        <button style={{ color: 'red' }}>Registration</button>
       </Link>
     </>
   );

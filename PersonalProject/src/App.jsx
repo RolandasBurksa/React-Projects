@@ -10,6 +10,7 @@ import { NavBar } from './2024-02-15 Test/NavBar';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { Registration } from './2024-02-15 Test/Registration';
+import { InputForm } from './2024-02-15 Test/InputForm';
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
 
         <Route path="/" element={<HomePage />} />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/inputform" element={<InputForm />} />
+
         {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
       </Routes>
     </>
