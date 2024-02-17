@@ -1,25 +1,39 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const InputForm = () => {
+  const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [inputForm, setInputForm] = useState({
     firstName: '',
     lastName: '',
     age: '',
-    blodGroup: '',
+    bloodGroup: '',
     gender: '',
   });
+  // parsiunciame duomenis is serverio, formuojame 'users' masyva
+  useEffect(() => {
+    axios
+      .get('https://dummyjson.com/users')
+      .then((response) => {
+        setUsers(response.data.users);
+        setIsLoading(false);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
-  // const [serverMessage, setServerMessage] = useState({});
-
+  if (isLoading) {
+    return <div>Loading ...</div>;
+  }
+  // donoru irasymo formos pildymo 'on submit' valdymas
   const handleForm = (e) => {
     setInputForm((prevFormData) => ({ ...prevFormData, [e.target.name]: e.target.value }));
   };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // alert(`Form submitet for user ${inputForm.firstName}`);
 
+    // postiname nauja donora i sarasa
     axios
       .post('https://dummyjson.com/users/add', inputForm)
       .then((res) => {
@@ -60,9 +74,18 @@ export const InputForm = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
+
+      <ul>
+        {users.map((donor) => (
+          <div key={donor.id}>
+            {donor.firstName} {donor.lastName}: {donor.age}:{donor.bloodGroup}: {donor.gender}
+            <button>View more</button>
+          </div>
+        ))}
+      </ul>
       <p>
-        Name: {inputForm.firstName}, LName: {inputForm.lastName}, Age: {inputForm.age}, BlotGrou:{inputForm.blodGroup}
-        ,Gender: {inputForm.gender}{' '}
+        Name: {inputForm.firstName}, LName: {inputForm.lastName}, Age: {inputForm.age}, BlotGrou:{inputForm.bloodGroup}
+        Gender: {inputForm.gender}{' '}
       </p>
     </div>
   );
