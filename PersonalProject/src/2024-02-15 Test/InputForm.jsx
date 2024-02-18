@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const InputForm = () => {
   const [users, setUsers] = useState([]);
@@ -11,7 +12,7 @@ export const InputForm = () => {
     bloodGroup: '',
     gender: '',
   });
-  // parsiunciame duomenis is serverio, formuojame 'users' masyva
+  // parsiunciame duomenis is serverio, formuojame 'users' masyva su 'get'
   useEffect(() => {
     axios
       .get('https://dummyjson.com/users')
@@ -74,12 +75,15 @@ export const InputForm = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-
+      {/*  pramapiname parsisiusta 'users' masyva is 'get'  */}
       <ul>
         {users.map((donor) => (
           <div key={donor.id}>
+            <br></br>
             {donor.firstName} {donor.lastName}: {donor.age}:{donor.bloodGroup}: {donor.gender}
-            <button>View more</button>
+            <Link to={`/donorinfo/${donor.id}`}>
+              <button>View more</button>
+            </Link>
           </div>
         ))}
       </ul>
