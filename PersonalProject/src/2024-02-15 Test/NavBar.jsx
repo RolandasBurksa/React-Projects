@@ -6,8 +6,7 @@ export const NavBar = () => {
       <Link to="/">
         <button>Home page</button>
       </Link>
-
-      <Link to="/donorlist">
+      <Link to="/donorinfo/:id">
         <button>Donor List</button>
       </Link>
     </nav>

@@ -41,12 +41,25 @@ export const InputForm = () => {
         console.log('res', res);
         // setInputForm(res.data.inputForm);
         // setServerMessage(res.data);
+        setUsers([...users, res.data]); // formuojame nauja masyva su naujai papildytu donoru atvaizdavimui
         alert(`Vartotojas: ${res.data.firstName} uzregistruotas`);
       })
       .catch((error) => console.log(error));
     // alert(`Vartotojas: ${serverMessage.firstName} uzregistruotas`);
   };
-
+  // triname pasirinkta donora is saraso, mygtukas 101 eiluteje
+  const handleDelete = (id) => {
+    axios
+      .delete(`https://dummyjson.com/users/${id}`)
+      .then((response) => {
+        const deletedUser = response.data;
+        const filtredUsers = users.filter((person) => person.id !== deletedUser.id);
+        setUsers(filtredUsers);
+        console.log('users', users);
+      })
+      .catch((err) => console.log(err));
+  };
+  // donoro pildymo forma
   return (
     <div>
       <form onSubmit={handleFormSubmit}>
@@ -75,7 +88,7 @@ export const InputForm = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-      {/*  pramapiname parsisiusta 'users' masyva is 'get'  */}
+      {/*  pramapiname parsisiusta 'users' masyva is 'get'  18 eilute */}
       <ul>
         {users.map((donor) => (
           <div key={donor.id}>
@@ -84,13 +97,15 @@ export const InputForm = () => {
             <Link to={`/donorinfo/${donor.id}`}>
               <button>View more</button>
             </Link>
+            <br></br>
+            <button onClick={() => handleDelete(donor.id)}>Delete</button>
           </div>
         ))}
       </ul>
-      <p>
+      {/* <p>
         Name: {inputForm.firstName}, LName: {inputForm.lastName}, Age: {inputForm.age}, BlotGrou:{inputForm.bloodGroup}
         Gender: {inputForm.gender}{' '}
-      </p>
+      </p> */}
     </div>
   );
 };

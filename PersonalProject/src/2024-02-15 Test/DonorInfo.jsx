@@ -5,7 +5,7 @@ import axios from 'axios';
 export const DonorInfo = () => {
   const [donorInfo, setDonorInfo] = useState({});
   const { id } = useParams();
-  // parsisiunciame duomenis pagal pasirinkto donoro id, pats id dinaminis, pagal pasirinkima
+  // parsisiunciame duomenis pagal pasirinkto donoro id, pats id dinaminis, pagal pasirinkima is InputForm
   useEffect(() => {
     axios
       .get(`https://dummyjson.com/users/${id}`)
