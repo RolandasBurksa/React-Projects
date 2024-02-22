@@ -24,7 +24,7 @@ export const FirstPage = () => {
   }
   return (
     <>
-      <h1>Books in a shop</h1>
+      <h1>Books for sale</h1>
 
       <div className="row" style={{ marginTop: '4%', marginLeft: '2%' }}>
         {books.map((book) => (
@@ -32,13 +32,17 @@ export const FirstPage = () => {
             <Card style={{ width: '18rem', height: '105vh' }}>
               <Card.Img style={{ height: '50vh' }} variant="top" src={book.cover} />
               <Card.Body>
-                <Card.Title>{book.title} </Card.Title>
-                <Card.Text>Author: {book.author}</Card.Text>
-                <Card.Text style={{ height: '40%' }}>
+                <Card.Title style={{ height: '10vh' }}>Title: {book.title} </Card.Title>
+                <Card.Text style={{ height: '5vh' }}>
+                  <b>Author: </b>Author: {book.author}
+                </Card.Text>
+                <Card.Text style={{ height: '35%' }}>
                   Some quick example text to build on the card title and make up the bulk of the card's content.
                 </Card.Text>
-                <Card.Text>Price: ${book.price}</Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Card.Text style={{ color: 'red' }}>Price: ${book.price}</Card.Text>
+                <Button variant={book.reserved ? 'secondary' : 'success'} onClick={() => handleToggleReserved(book.id)}>
+                  {book.reserved ? 'Reserved' : 'Available'}
+                </Button>
               </Card.Body>
             </Card>
           </div>
