@@ -18,26 +18,28 @@ import { SecondPage } from './2024-02-19 React Exam/SecondPage';
 function App() {
   return (
     <>
-      {/* <BasicNavBarExample />
+      <div style={{ backgroundColor: 'cornsilk' }}>
+        {/* <BasicNavBarExample />
       <ProductListOnSale />
       <Footer />
       <Contacts /> */}
-      {/* <CardPlaceholderExample /> */}
-      <NavBar />
-      <br></br>
-      <Routes>
-        {/* <Route path="/" element={<ProductListDataFetching />} /> */}
-        {/* <Route path="/" element={<ProductListDataFetchingOne />} /> */}
+        {/* <CardPlaceholderExample /> */}
+        <NavBar />
+        <br></br>
+        <Routes>
+          {/* <Route path="/" element={<ProductListDataFetching />} /> */}
+          {/* <Route path="/" element={<ProductListDataFetchingOne />} /> */}
 
-        {/* <Route path="/" element={<HomePage />} />
+          {/* <Route path="/" element={<HomePage />} />
         <Route path="/inputform/" element={<InputForm />} />
         <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
 
-        {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
+          {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
 
-        <Route path="/firstpage" element={<FirstPage />} />
-        <Route path="/secondpage" element={<SecondPage />} />
-      </Routes>
+          <Route path="/firstpage" element={<FirstPage />} />
+          <Route path="/secondpage" element={<SecondPage />} />
+        </Routes>
+      </div>
     </>
   );
 }
