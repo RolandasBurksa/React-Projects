@@ -14,6 +14,7 @@ import { Route, Routes } from 'react-router-dom';
 import { NavBar } from './2024-02-19 React Exam/NavBar';
 import { FirstPage } from './2024-02-19 React Exam/FirstPage';
 import { SecondPage } from './2024-02-19 React Exam/SecondPage';
+import { FeedbackPage } from './2024-02-19 React Exam/FeedbackPage';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
 
           <Route path="/firstpage" element={<FirstPage />} />
           <Route path="/secondpage" element={<SecondPage />} />
+          <Route path="/feedbackpage" element={<FeedbackPage />} />
         </Routes>
       </div>
     </>

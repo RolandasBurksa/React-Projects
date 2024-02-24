@@ -1,19 +1,22 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import { useState } from 'react';
+// import Row from 'react-bootstrap/Row';
+import { useState, setTimeout } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export const SecondPage = () => {
   const navigate = useNavigate();
   const [inputForm, setInputForm] = useState({
+    id: '',
     title: '',
     author: '',
     category: '',
     price: '',
     cover: '',
+    images: '',
+    reserved: '',
   });
 
   // books irasymo formos pildymo 'on submit' valdymas
@@ -30,7 +33,11 @@ export const SecondPage = () => {
       .then((res) => {
         console.log('res', res);
 
-        alert(`Your book ${res.data.title} is registered`);
+        // alert(`Your book ${res.data.title} is registered`);
+
+        setTimeout(() => {
+          alert(`Your book ${res.data.title} is registered`);
+        }, 2000);
       })
       .catch((error) => console.log(error));
   };
@@ -103,6 +110,9 @@ export const SecondPage = () => {
         <Button onClick={() => navigate('/firstpage')} style={{ marginBottom: '4%' }} variant="primary" type="submit">
           Submit
         </Button>
+        {/* <Button style={{ marginBottom: '4%' }} variant="primary" type="submit">
+          Submit
+        </Button> */}
       </Form>
       <p>
         Author: {inputForm.author}, Category: {inputForm.category}, Title: {inputForm.title},{' '}
