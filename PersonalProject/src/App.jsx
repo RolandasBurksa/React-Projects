@@ -15,6 +15,9 @@ import { NavBar } from './2024-02-19 React Exam/NavBar';
 import { FirstPage } from './2024-02-19 React Exam/FirstPage';
 import { SecondPage } from './2024-02-19 React Exam/SecondPage';
 import { FeedbackPage } from './2024-02-19 React Exam/FeedbackPage';
+import StackingExample from './2024-02-19 React Exam/StackingExample';
+import { Footer } from './2024-02-19 React Exam/Footer';
+// import { StackingExample } from './2024-02-19 React Exam/StackingExample';
 
 function App() {
   return (
@@ -40,7 +43,10 @@ function App() {
           <Route path="/firstpage" element={<FirstPage />} />
           <Route path="/secondpage" element={<SecondPage />} />
           <Route path="/feedbackpage" element={<FeedbackPage />} />
+          <Route path="/toast" element={<StackingExample />} />
+          {/* <Route path="/footer" element={<Footer />} /> */}
         </Routes>
+        <Footer />
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const SecondPage = () => {
   const navigate = useNavigate();
+
   const [inputForm, setInputForm] = useState({
     id: '',
     title: '',
@@ -114,9 +115,6 @@ export const SecondPage = () => {
           Submit
         </Button> */}
       </Form>
-      <p>
-        Author: {inputForm.author}, Category: {inputForm.category}, Title: {inputForm.title},{' '}
-      </p>
     </>
   );
 };

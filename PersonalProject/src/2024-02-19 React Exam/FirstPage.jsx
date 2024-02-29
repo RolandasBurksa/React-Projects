@@ -22,6 +22,7 @@ export const FirstPage = () => {
   if (isLoading) {
     return <div>Loading ...</div>;
   }
+  <br></br>;
   return (
     <>
       <h1>Books for sale</h1>

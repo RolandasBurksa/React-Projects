@@ -3,9 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import axios from 'axios';
+// import StackingExample { showToast, }from './StackingExample';
 import Toast from 'react-bootstrap/Toast';
 
 export const FeedbackPage = () => {
+  const [showToast, setshowToast] = useState(false);
   const [inputFeedBackForm, setInputFeedBackForm] = useState({
     id: '',
     title: '',
@@ -26,19 +28,7 @@ export const FeedbackPage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-
-    // const Toast = () => {
-    //   return (
-    //     <Toast>
-    //       <Toast.Header>
-    //         <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-    //         <strong className="me-auto">Bootstrap</strong>
-    //         <small>11 mins ago</small>
-    //       </Toast.Header>
-    //       <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-    //     </Toast>
-    //   );
-    // };
+    setshowToast(true);
 
     // postiname ivedamos knygos duomenis i DB, masyvas -> inputFeedBackForm
     axios
@@ -51,6 +41,15 @@ export const FeedbackPage = () => {
         // setTimeout(() => {
         //   alert(`Your book ${res.data.namefeedb} is registered`);
         // }, 2000);
+
+        // <Toast show={showToast}>
+        //   <Toast.Header>
+        //     <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+        //     <strong className="me-auto">Bootstrap</strong>
+        //     <small>11 mins ago</small>
+        //   </Toast.Header>
+        //   <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
+        // </Toast>;
       })
       .catch((error) => console.log(error));
   };
@@ -80,7 +79,7 @@ export const FeedbackPage = () => {
             value={inputFeedBackForm.title}
             onChange={handleForm}
           />
-          <Form.Text className="text-muted">We we respect your opinion.</Form.Text>
+          <Form.Text className="text-muted">We respect your opinion.</Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicFeedback">
