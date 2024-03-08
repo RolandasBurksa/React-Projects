@@ -7,14 +7,23 @@ import { Facebook, Linkedin, Twitter } from 'react-bootstrap-icons';
 export const Footer = () => {
   const [showTopButton, setShowTopButton] = useState(false);
 
+  // useEffect skirtas mygtuko "show top" valdymui, atsiranda kai Y skrolas > 400 , 11 + 24 eilutes
   useEffect(() => {
-    if (window.scrollY > 400) {
-      setShowTopButton(true);
-    } else {
-      setShowTopButton(false);
-    }
-  }, []);
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowTopButton(true);
+      } else {
+        setShowTopButton(false);
+      }
+    };
+    //  Listen for scroll events
+    window.addEventListener('scroll', handleScroll);
 
+    //  Cleanup function to remove event listener
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []); // The empty array means this effect runs once on mount and once on unmount
+
+  // funkcija goTop ir veikimo budas "smooth"
   function goTop() {
     window.scrollTo({
       top: 0,

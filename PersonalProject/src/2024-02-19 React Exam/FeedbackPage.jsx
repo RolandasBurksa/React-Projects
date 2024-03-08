@@ -3,12 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import axios from 'axios';
-// import StackingExample { showToast, }from './StackingExample';
-import ToastExample from './ToastExample';
-import { Toast } from 'react-bootstrap-toasts';
+import Toast from 'react-bootstrap/Toast';
+import ToastContainer from 'react-bootstrap/ToastContainer';
 
 export const FeedbackPage = () => {
-  const [showToast, setToast] = useState(false);
+  const [showToast, setshowToast] = useState(false);
   const [inputFeedBackForm, setInputFeedBackForm] = useState({
     id: '',
     title: '',
@@ -36,7 +35,7 @@ export const FeedbackPage = () => {
       .then((res) => {
         console.log('res', res);
 
-        setToast(true);
+        setshowToast(true);
 
         // alert(`Thank you, ${res.data.namefeedb} we have received your feedback.`);
 
@@ -49,17 +48,28 @@ export const FeedbackPage = () => {
 
   return (
     <>
-      <div>
-        <h2 className="mb-4">React JS Desktop Notification with Bootstrap Example</h2>
-        <Toast onClose={() => setToast(false)} autohide show={showToast} delay={2200}>
-          <Toast.Header>
-            <strong className="mr-auto">React Toast</strong>
-            <small>50 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Lorem ipsum dolor sit adipiscing elit.</Toast.Body>
-        </Toast>
-        <Button onClick={() => setToast(true)}>Show Toast</Button>
-      </div>
+      {/* dedame toasta desineje virsuje */}
+      <ToastContainer position="top-end" className="p-3">
+        {/* parenkame toasto spalva*/}
+        {['Success'].map((variant, idx) => (
+          <Toast
+            className="d-inline-block m-1"
+            bg={variant.toLowerCase()}
+            key={idx}
+            onClose={() => setshowToast(false)}
+            autohide
+            show={showToast}
+            delay={3000}
+          >
+            <Toast.Header>
+              <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+              <strong className="me-auto">My First book shop</strong>
+              <small>Yepp !</small>
+            </Toast.Header>
+            <Toast.Body className={variant === 'Dark' && 'text-white'}>Your feedback is submitted !</Toast.Body>
+          </Toast>
+        ))}
+      </ToastContainer>
       <h1>Book Feedback Page</h1>
       <Form onSubmit={handleFormSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
@@ -102,7 +112,7 @@ export const FeedbackPage = () => {
           Submit
         </Button>
       </Form>
-      {/* <ToastExample setToast={true} /> */}
+      {/* <Toast setshowToast={true} /> */}
     </>
   );
 };

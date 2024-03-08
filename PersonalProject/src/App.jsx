@@ -11,14 +11,13 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 // import { InputForm } from './2024-02-15 Test/InputForm';
 // import { DonorInfo } from './2024-02-15 Test/DonorInfo';
+
 import { NavBar } from './2024-02-19 React Exam/NavBar';
 import { FirstPage } from './2024-02-19 React Exam/FirstPage';
 import { SecondPage } from './2024-02-19 React Exam/SecondPage';
 import { FeedbackPage } from './2024-02-19 React Exam/FeedbackPage';
-import StackingExample from './2024-02-19 React Exam/StackingExample';
 import { Footer } from './2024-02-19 React Exam/Footer';
-import ToastExample from './2024-02-19 React Exam/ToastExample';
-// import { StackingExample } from './2024-02-19 React Exam/StackingExample';
+import { StartPage } from './2024-02-19 React Exam/StartPage';
 
 function App() {
   return (
@@ -35,17 +34,17 @@ function App() {
           {/* <Route path="/" element={<ProductListDataFetching />} /> */}
           {/* <Route path="/" element={<ProductListDataFetchingOne />} /> */}
 
-          {/* <Route path="/" element={<HomePage />} />
-        <Route path="/inputform/" element={<InputForm />} />
-        <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
+          {/* <Route path="/" element={<HomePage />} /> */}
+          {/* <Route path="/inputform/" element={<InputForm />} /> */}
+          {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
 
           {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
 
+          <Route path="/" element={<StartPage />} />
           <Route path="/firstpage" element={<FirstPage />} />
           <Route path="/secondpage" element={<SecondPage />} />
           <Route path="/feedbackpage" element={<FeedbackPage />} />
-          <Route path="/toast" element={<StackingExample />} />
-          {/* <Route path="/footer" element={<Footer />} /> */}
+          <Route path="/footer" element={<Footer />} />
         </Routes>
         <Footer />
       </div>

@@ -1,16 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import { useState /*setTimeout */ } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import ToastBody from 'react-bootstrap/esm/ToastBody';
-import { Toast } from 'react-bootstrap';
 
 export const SecondPage = () => {
   const navigate = useNavigate();
-  // const [toast, showToast] = useState(false);
-  // const [showToast, setToast] = useState(false);
   const [inputForm, setInputForm] = useState({
     id: '',
     title: '',

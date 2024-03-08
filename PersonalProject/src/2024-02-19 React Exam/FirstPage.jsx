@@ -19,6 +19,7 @@ export const FirstPage = () => {
       .catch((error) => console.log(error));
   }, []);
 
+  // louderis, kol krauna, matome pranesima 24 eilute
   if (isLoading) {
     return <div>Loading ...</div>;
   }
@@ -38,7 +39,7 @@ export const FirstPage = () => {
                   <b>Author: </b>Author: {book.author}
                 </Card.Text>
                 <Card.Text style={{ height: '35%' }}>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                  Some quick example text to build on the card title and make up the bulk of the cards content.
                 </Card.Text>
                 <Card.Text style={{ color: 'red', marginBottom: '4%' }}>Price: ${book.price}</Card.Text>
                 <Button variant={book.reserved ? 'secondary' : 'success'} onClick={() => handleToggleReserved(book.id)}>
