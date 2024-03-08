@@ -1,14 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-// import Row from 'react-bootstrap/Row';
-import { useState, setTimeout } from 'react';
+import { useState /*setTimeout */ } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import ToastBody from 'react-bootstrap/esm/ToastBody';
+import { Toast } from 'react-bootstrap';
 
 export const SecondPage = () => {
   const navigate = useNavigate();
-
+  // const [toast, showToast] = useState(false);
+  // const [showToast, setToast] = useState(false);
   const [inputForm, setInputForm] = useState({
     id: '',
     title: '',
@@ -34,15 +36,15 @@ export const SecondPage = () => {
       .then((res) => {
         console.log('res', res);
 
-        // alert(`Your book ${res.data.title} is registered`);
+        alert(`Your book ${res.data.title} is registered`);
 
-        setTimeout(() => {
-          alert(`Your book ${res.data.title} is registered`);
-        }, 2000);
+        // setTimeout(() => {
+        //   alert(`Your book ${res.data.title} is registered`);
+        // }, 2000);
       })
       .catch((error) => console.log(error));
   };
-
+  // inputform pildymas
   return (
     <>
       <h1>Book registration form:</h1>
@@ -107,7 +109,7 @@ export const SecondPage = () => {
         </Form.Group>
         <br></br>
         <br></br>
-
+        {/* naviguojame Button pagalba i firstpage per Route nuoroda */}
         <Button onClick={() => navigate('/firstpage')} style={{ marginBottom: '4%' }} variant="primary" type="submit">
           Submit
         </Button>

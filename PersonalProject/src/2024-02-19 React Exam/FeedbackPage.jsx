@@ -4,10 +4,11 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import axios from 'axios';
 // import StackingExample { showToast, }from './StackingExample';
-import Toast from 'react-bootstrap/Toast';
+import ToastExample from './ToastExample';
+import { Toast } from 'react-bootstrap-toasts';
 
 export const FeedbackPage = () => {
-  const [showToast, setshowToast] = useState(false);
+  const [showToast, setToast] = useState(false);
   const [inputFeedBackForm, setInputFeedBackForm] = useState({
     id: '',
     title: '',
@@ -28,7 +29,6 @@ export const FeedbackPage = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setshowToast(true);
 
     // postiname ivedamos knygos duomenis i DB, masyvas -> inputFeedBackForm
     axios
@@ -36,26 +36,30 @@ export const FeedbackPage = () => {
       .then((res) => {
         console.log('res', res);
 
-        alert(`Thank you, ${res.data.namefeedb} we have received your feedback.`);
+        setToast(true);
+
+        // alert(`Thank you, ${res.data.namefeedb} we have received your feedback.`);
 
         // setTimeout(() => {
         //   alert(`Your book ${res.data.namefeedb} is registered`);
         // }, 2000);
-
-        // <Toast show={showToast}>
-        //   <Toast.Header>
-        //     <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-        //     <strong className="me-auto">Bootstrap</strong>
-        //     <small>11 mins ago</small>
-        //   </Toast.Header>
-        //   <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-        // </Toast>;
       })
       .catch((error) => console.log(error));
   };
 
   return (
     <>
+      <div>
+        <h2 className="mb-4">React JS Desktop Notification with Bootstrap Example</h2>
+        <Toast onClose={() => setToast(false)} autohide show={showToast} delay={2200}>
+          <Toast.Header>
+            <strong className="mr-auto">React Toast</strong>
+            <small>50 mins ago</small>
+          </Toast.Header>
+          <Toast.Body>Lorem ipsum dolor sit adipiscing elit.</Toast.Body>
+        </Toast>
+        <Button onClick={() => setToast(true)}>Show Toast</Button>
+      </div>
       <h1>Book Feedback Page</h1>
       <Form onSubmit={handleFormSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
@@ -98,6 +102,7 @@ export const FeedbackPage = () => {
           Submit
         </Button>
       </Form>
+      {/* <ToastExample setToast={true} /> */}
     </>
   );
 };

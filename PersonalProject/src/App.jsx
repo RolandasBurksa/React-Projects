@@ -17,6 +17,7 @@ import { SecondPage } from './2024-02-19 React Exam/SecondPage';
 import { FeedbackPage } from './2024-02-19 React Exam/FeedbackPage';
 import StackingExample from './2024-02-19 React Exam/StackingExample';
 import { Footer } from './2024-02-19 React Exam/Footer';
+import ToastExample from './2024-02-19 React Exam/ToastExample';
 // import { StackingExample } from './2024-02-19 React Exam/StackingExample';
 
 function App() {
