@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
 import { listEmployees } from '../services/EmployeeService';
+import { useNavigate } from 'react-router-dom';
 
 const ListEmployeeComponent = () => {
   // Naudosime kontrolei/formos_kurimui, kol nepajungsime API
@@ -28,6 +29,8 @@ const ListEmployeeComponent = () => {
 
   const [employees, setEmployees] = useState([]);
 
+  const navigator = useNavigate();
+
   useEffect(() => {
     listEmployees()
       .then((response) => {
@@ -38,9 +41,16 @@ const ListEmployeeComponent = () => {
       });
   }, []);
 
+  function addNewEmployee() {
+    navigator('/add-employee');
+  }
+
   return (
     <div className="container">
       <h2>List of Employees</h2>
+      <button className="btn btn-primary mb-2 d-grid" onClick={addNewEmployee}>
+        Add Employee
+      </button>
       <table className="table table-striped table-bordered">
         <thead>
           <tr>
@@ -52,7 +62,7 @@ const ListEmployeeComponent = () => {
         </thead>
         <tbody>
           {
-            //   dummyData.map((employee) => (    <- taip buvo kol bildinom forma, dabar naudosim API, 56 eilute
+            //   dummyData.map((employee) => (    <- taip buvo kol bildinom forma, dabar naudosim API, 66 eilute
             employees.map((employee) => (
               <tr key={employee.id}>
                 <td>{employee.id}</td>

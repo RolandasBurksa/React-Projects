@@ -8,7 +8,7 @@
 // import { HomePage } from './2024-02-15 Test/HomePage';
 // import { NavBar } from './2024-02-15 Test/NavBar';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 // import { InputForm } from './2024-02-15 Test/InputForm';
 // import { DonorInfo } from './2024-02-15 Test/DonorInfo';
 
@@ -21,6 +21,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ListEmployeeComponent from './2024-03-18 Full-Stack/components/ListEmployeeComponent';
 import HeaderComponent from './2024-03-18 Full-Stack/components/HeaderComponent';
 import FooterComponent from './2024-03-18 Full-Stack/components/FooterComponent';
+import EmployeeComponent from './2024-03-18 Full-Stack/components/EmployeeComponent';
 
 function App() {
   return (
@@ -52,16 +53,18 @@ function App() {
         {/* </Routes> */}
         {/* <Footer /> */}
 
-        <BrowserRouter>
-          <HeaderComponent />
-          <Routes>
-            {/* http://localhost:3002 */}
-            <Route path="/" element={<ListEmployeeComponent />}></Route>
-            {/* http://localhost:3002/employees */}
-            <Route path="/employees" element={<ListEmployeeComponent />}></Route>
-          </Routes>
-          <FooterComponent />
-        </BrowserRouter>
+        {/* <BrowserRouter> */}
+        <HeaderComponent />
+        <Routes>
+          {/* http://localhost:3002 */}
+          <Route path="/" element={<ListEmployeeComponent />}></Route>
+          {/* http://localhost:3002/employees */}
+          <Route path="/employees" element={<ListEmployeeComponent />}></Route>
+          {/* http://localhost:3002/add-employee */}
+          <Route path="/add-employee" element={<EmployeeComponent />}></Route>
+        </Routes>
+        <FooterComponent />
+        {/* </BrowserRouter> */}
       </div>
     </>
   );
