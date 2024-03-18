@@ -8,7 +8,7 @@
 // import { HomePage } from './2024-02-15 Test/HomePage';
 // import { NavBar } from './2024-02-15 Test/NavBar';
 import './App.css';
-// import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import { InputForm } from './2024-02-15 Test/InputForm';
 // import { DonorInfo } from './2024-02-15 Test/DonorInfo';
 
@@ -52,9 +52,16 @@ function App() {
         {/* </Routes> */}
         {/* <Footer /> */}
 
-        <HeaderComponent />
-        <ListEmployeeComponent />
-        <FooterComponent />
+        <BrowserRouter>
+          <HeaderComponent />
+          <Routes>
+            {/* http://localhost:3002 */}
+            <Route path="/" element={<ListEmployeeComponent />}></Route>
+            {/* http://localhost:3002/employees */}
+            <Route path="/employees" element={<ListEmployeeComponent />}></Route>
+          </Routes>
+          <FooterComponent />
+        </BrowserRouter>
       </div>
     </>
   );
