@@ -8,45 +8,49 @@
 // import { HomePage } from './2024-02-15 Test/HomePage';
 // import { NavBar } from './2024-02-15 Test/NavBar';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
+// import { Route, Routes } from 'react-router-dom';
 // import { InputForm } from './2024-02-15 Test/InputForm';
 // import { DonorInfo } from './2024-02-15 Test/DonorInfo';
 
-import { NavBar } from './2024-02-19 React Exam/NavBar';
-import { FirstPage } from './2024-02-19 React Exam/FirstPage';
-import { SecondPage } from './2024-02-19 React Exam/SecondPage';
-import { FeedbackPage } from './2024-02-19 React Exam/FeedbackPage';
-import { Footer } from './2024-02-19 React Exam/Footer';
-import { StartPage } from './2024-02-19 React Exam/StartPage';
+// import { NavBar } from './2024-02-19 React Exam/NavBar';
+// import { FirstPage } from './2024-02-19 React Exam/FirstPage';
+// import { SecondPage } from './2024-02-19 React Exam/SecondPage';
+// import { FeedbackPage } from './2024-02-19 React Exam/FeedbackPage';
+// import { Footer } from './2024-02-19 React Exam/Footer';
+// import { StartPage } from './2024-02-19 React Exam/StartPage';
+import ListEmployeeComponent from './2024-03-18 Full-Stack/components/ListEmployeeComponent';
 
 function App() {
   return (
     <>
-      <div style={{ backgroundColor: 'cornsilk' }}>
+      <div>
+        {/* <div style={{ backgroundColor: 'cornsilk' }}> */}
         {/* <BasicNavBarExample />
       <ProductListOnSale />
       <Footer />
       <Contacts /> */}
         {/* <CardPlaceholderExample /> */}
-        <NavBar />
-        <br></br>
-        <Routes>
-          {/* <Route path="/" element={<ProductListDataFetching />} /> */}
-          {/* <Route path="/" element={<ProductListDataFetchingOne />} /> */}
+        {/* <NavBar /> */}
+        {/* <br></br> */}
+        {/* <Routes> */}
+        {/* <Route path="/" element={<ProductListDataFetching />} /> */}
+        {/* <Route path="/" element={<ProductListDataFetchingOne />} /> */}
 
-          {/* <Route path="/" element={<HomePage />} /> */}
-          {/* <Route path="/inputform/" element={<InputForm />} /> */}
-          {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
+        {/* <Route path="/" element={<HomePage />} /> */}
+        {/* <Route path="/inputform/" element={<InputForm />} /> */}
+        {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
 
-          {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
+        {/* <Route path="/donorinfo/:id" element={<DonorInfo />} /> */}
 
-          <Route path="/" element={<StartPage />} />
-          <Route path="/firstpage" element={<FirstPage />} />
-          <Route path="/secondpage" element={<SecondPage />} />
-          <Route path="/feedbackpage" element={<FeedbackPage />} />
-          <Route path="/footer" element={<Footer />} />
-        </Routes>
-        <Footer />
+        {/* <Route path="/" element={<StartPage />} /> */}
+        {/* <Route path="/firstpage" element={<FirstPage />} /> */}
+        {/* <Route path="/secondpage" element={<SecondPage />} /> */}
+        {/* <Route path="/feedbackpage" element={<FeedbackPage />} /> */}
+        {/* <Route path="/footer" element={<Footer />} /> */}
+        {/* </Routes> */}
+        {/* <Footer /> */}
+
+        <ListEmployeeComponent />
       </div>
     </>
   );
