@@ -19,6 +19,8 @@ import './App.css';
 // import { Footer } from './2024-02-19 React Exam/Footer';
 // import { StartPage } from './2024-02-19 React Exam/StartPage';
 import ListEmployeeComponent from './2024-03-18 Full-Stack/components/ListEmployeeComponent';
+import HeaderComponent from './2024-03-18 Full-Stack/components/HeaderComponent';
+import FooterComponent from './2024-03-18 Full-Stack/components/FooterComponent';
 
 function App() {
   return (
@@ -50,7 +52,9 @@ function App() {
         {/* </Routes> */}
         {/* <Footer /> */}
 
+        <HeaderComponent />
         <ListEmployeeComponent />
+        <FooterComponent />
       </div>
     </>
   );
