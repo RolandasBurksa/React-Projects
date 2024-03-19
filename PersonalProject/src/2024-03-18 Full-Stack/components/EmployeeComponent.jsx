@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 // eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from 'react';
-import { createEmployee, getEmployee } from '../services/EmployeeService';
+import { createEmployee, getEmployee, updateEmployee } from '../services/EmployeeService';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const EmployeeComponent = () => {
@@ -31,17 +31,32 @@ const EmployeeComponent = () => {
         });
   }, [id]);
 
-  function seveEmployee(e) {
+  function seveOrUpdateEmployee(e) {
     e.preventDefault();
 
     if (validateForm()) {
       const employee = { firstName, lastName, email };
       console.log(employee);
 
-      createEmployee(employee).then((response) => {
-        console.log(response.data);
-        navigator('/employees');
-      });
+      if (id) {
+        updateEmployee(id, employee)
+          .then((response) => {
+            console.log(response.data);
+            navigator('/employees');
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } else {
+        createEmployee(employee)
+          .then((response) => {
+            console.log(response.data);
+            navigator('/employees');
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }
     }
   }
 
@@ -131,7 +146,7 @@ const EmployeeComponent = () => {
                 {errors.email && <div className="invalid-feedback"> {errors.email}</div>}
               </div>
 
-              <button className="btn btn-success" onClick={seveEmployee}>
+              <button className="btn btn-success" onClick={seveOrUpdateEmployee}>
                 Submit
               </button>
             </form>
