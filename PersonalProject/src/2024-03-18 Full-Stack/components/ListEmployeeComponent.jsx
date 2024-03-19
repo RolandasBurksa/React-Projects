@@ -84,7 +84,7 @@ const ListEmployeeComponent = () => {
         </thead>
         <tbody>
           {
-            //   dummyData.map((employee) => (    <- taip buvo kol bildinom forma, dabar naudosim API, 66 eilute
+            //   dummyData.map((employee) => (    <- taip buvo kol bildinom forma, dabar naudosim API
             employees.map((employee) => (
               <tr key={employee.id}>
                 <td>{employee.id}</td>
