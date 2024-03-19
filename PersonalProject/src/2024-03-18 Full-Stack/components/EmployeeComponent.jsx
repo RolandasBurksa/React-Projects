@@ -1,8 +1,71 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState } from 'react';
 
 const EmployeeComponent = () => {
-  return <div>Empty EmployeeComponent</div>;
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+
+  function seveEmployee(e) {
+    e.preventDefault();
+
+    const employee = { firstName, lastName, email };
+    console.log(employee);
+  }
+
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="card">
+          <h2 className="text-center">Add Employee</h2>
+          <div className="csrd-body">
+            <form>
+              <div className="form-group mb-2">
+                <label className="form-label">First Name:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Employee First Name"
+                  name="firstName"
+                  value={firstName}
+                  className="form-control"
+                  onChange={(e) => setFirstName(e.target.value)}
+                ></input>
+              </div>
+
+              <div className="form-group mb-2">
+                <label className="form-label">Last Name:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Employee Last Name"
+                  name="lastName"
+                  value={lastName}
+                  className="form-control"
+                  onChange={(e) => setLastName(e.target.value)}
+                ></input>
+              </div>
+
+              <div className="form-group mb-2">
+                <label className="form-label">Email:</label>
+                <input
+                  type="text"
+                  placeholder="Enter Employee Email"
+                  name="email"
+                  value={email}
+                  className="form-control"
+                  onChange={(e) => setEmail(e.target.value)}
+                ></input>
+              </div>
+
+              <button className="btn btn-success" onClick={seveEmployee}>
+                Submit
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default EmployeeComponent;
